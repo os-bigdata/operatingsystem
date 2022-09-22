@@ -1,0 +1,18 @@
+ALGORITHM:-
+1) Read the number given.
+2) Initialize the for loop where i<=$n.
+3) Initiallize one more loop inside the above loop with j<=$i.
+4) Print “*” and close the two loops.
+5) Continue until the required root loops(rows) reached.
+
+
+Program:
+read -p "Enter the limit: " n
+for((i=0;i<=$n;i++))
+do
+   for((j=1;j<=$i;j++))
+   do
+    echo -n "*"
+    done
+    echo""
+done
