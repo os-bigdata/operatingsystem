@@ -1,3 +1,17 @@
+ALGORITHM:
+Step 1: Start.
+Step 2: Let n be the size of the buffer.
+Step 3: check if there are any producer.
+Step 4: if yes check whether the buffer is full.
+Step 5: If no the producer item is stored in the buffer.
+Step 6: If the buffer is full the producer has to wait.
+Step 7: Check there is any consumer. If yes check whether the buffer is empty
+Step 8: If no the consumer consumes them from the buffer.
+Step 9: If the buffer is empty, the consumer has to wait.
+Step 10: Repeat checking for the producer and consumer till required.
+Step 11: Terminate the process.
+
+Program:
 #include <stdio.h>
 int mutex = 1;
 int full = 0;
