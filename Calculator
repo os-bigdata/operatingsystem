@@ -1,0 +1,23 @@
+ALGORITHM:-
+1) Read the operator
+2) Read the operands
+3) Using the operator as choice for switch case write case for operators
+4) End switch case
+5) Stop
+
+Program:
+echo "1.Addition 2.Subtraction 3.Multiplication 4.Division"
+
+echo "Enter the operends: "
+read a
+read b
+echo "Enter operator: "
+read n
+case $n in
+"+") echo "$a+$b" = `expr $a + $b`;;
+"-") echo "$a-$b" = `expr $a - $b`;;
+"*") echo "$a*$b" = `expr $a \* $b`;;
+"/") echo "$a/$b" = `expr $a / $b`;;
+*) echo "Invalid"
+
+esac
