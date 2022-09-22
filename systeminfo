@@ -1,0 +1,15 @@
+ALGORITHM:-
+1. Get the system information such as network name and node name, kernel name,
+kernel version e.t.c 
+2 Network $node name=$(uname –n)
+Kernel name=$(uname –s)
+Kernel ru=$(uname –a)
+Operating system =$(uname –m)
+All information $(uname –A)
+
+Program:
+echo "Network = " $(uname -n)
+echo "Kernel Name = " $(uname -s)
+echo "Kernel version = " $(uname -v)
+echo "OpratingSystem = " $(uname -m)
+echo "All info= " $(uname -a)
