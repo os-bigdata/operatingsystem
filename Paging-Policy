@@ -8,3 +8,27 @@ Step 5: Display the physical address.
 Step 6: Stop the process.
 
 Program:
+#include <stdio.h>
+#include<conio.h>
+#include<math.h>
+
+int main(){
+    int size,m,n,pgno,pagetable[3]={5,6,7},i,j,frameno;
+    double m1;
+    int ra=0,ofs;
+    printf("Enter process size:");
+    scanf("%d",&size);
+    m1 = size/4;
+    n = ceil(m1);
+    printf("Total no.of pages %d", n);
+    printf("\n Enter Relative Address:");
+    scanf("%d",&ra);
+    pgno = ra/1000;
+    ofs = ra%1000;
+    printf("Pageno=%d\n",pgno);
+    printf("Page Table");
+    for(i=0;i<n;i++)
+        printf("\n%d[%d]",i,pagetable[i]);
+    frameno=pagetable[pgno];
+    printf("\nEquivalent physical Address:%d%d",frameno,ofs);
+}
