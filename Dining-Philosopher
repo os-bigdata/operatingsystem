@@ -1,0 +1,72 @@
+Algorithm:
+1. Initialize the state array S as 0, Si =0 if the philosopher i is thinking or 1 if
+hungry.
+2. Associate two functions getfork(i) and putfork(i) for each philosopher i.
+3. For each philosopher I call getfork(i) , test(i) and putfork(i) if i is 0
+4. Stop
+
+Algorithm for getfork(i):
+Step 1: set S[i]= 1 i.e. the philosopher i is hungry
+Step 2: call test(i)
+Algorithm for putfork(i)
+Step 1: set S[i]=0 I.e. the philosopher i is thinking
+Step 2: test(LEFT) and test(RIGHT)
+Algorithm for test(i)
+Step 1: check if (state[i]==HUNGRY && state[LEFT]!=EATING &&
+state[RIGHT]!=EATING)
+Step 2: give the i philosopher a chance to eat.
+
+Program:
+#include <stdio.h>
+#define LEFT (i+4)%5
+#define RIGHT (i+1)%5
+#define EATING 2
+#define HUNGRY 1
+#define THINKING 0
+int state[5];
+
+void put_forks(int);
+void take_forks(int);
+void test(int);
+
+void philosopher(int i){
+    if(state[i]==0){
+        take_forks(i);
+    if(state[i]==EATING)
+        printf("\n Eating in process");
+    put_forks(i); 
+    }
+}
+
+void put_forks(int i){
+    state[i] = THINKING;
+    printf("\nPhilosopher %d has completed its work\n",i);
+    test(LEFT);
+    test(RIGHT);
+}
+
+void take_forks(int i){
+    state[i] = HUNGRY;
+    test(i);
+}
+
+void test(int i){
+    if(state[i]==HUNGRY&&state[LEFT]!=EATING&&state[RIGHT]!=EATING){
+        printf("\nPhilosopher %d can eat\n",i);
+        state[i]=EATING;
+    }
+}
+void main(){
+    int i;
+    for(i=1;i<=5;i++){
+        state[i] = 0;
+    }
+    printf("\n\n\t\t\t DINING PHILOSOPHERS PROBLEM");
+    printf("\n\t\t~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
+    printf("\n%d ALL THE PHILOSOPHERS ARE THINKING !!....\n",i);
+
+    for(i=1;i<=5;i++){
+        printf("\n\nThe philosophers %d falls hungry\n",i);
+        philosopher(i);
+    }
+}
