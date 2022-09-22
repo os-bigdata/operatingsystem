@@ -1,0 +1,10 @@
+ALGORITHM:
+Step 1: Read all the necessary input from the keyboard.
+Step 2: Pages - Logical memory is broken into fixed - sized blocks.
+Step 3: Frames – Physical memory is broken into fixed – sized blocks.
+Step 4: Calculate the physical address using the following
+Physical address = ( Frame number * Frame size ) + offset
+Step 5: Display the physical address.
+Step 6: Stop the process.
+
+Program:
