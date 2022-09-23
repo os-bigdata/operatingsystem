@@ -1,0 +1,18 @@
+ALGORITHM:-
+1) Get the file name.
+2) store the name in a variable.
+3) Apply conversion to that variable.
+4) Store it in other variable.
+5) Finally display the converted file name.
+
+
+Program:
+echo "Enter the file name"
+read f
+
+if [ ! -f $file]
+then
+    echo "File doesnot exit"
+exit 1
+fi
+tr '[a-z]' '[A-Z]' $file
