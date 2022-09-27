@@ -1,0 +1,48 @@
+#include<stdio.h>
+
+int worstFit(int blocks, int BlockSzie[], int process, int ProcessSize[]){
+    int i,j, allocate[process],index;
+
+    for(i=0;i<process;i++){
+        allocate[i] = 1;
+    }
+
+    for(i=0;i<process;i++){
+        index = -1;
+        for(j=0;j<blocks;j++){
+            if(BlockSzie[j] >= ProcessSize[i]){
+                if(index == -1)
+                   index =j;
+
+                else if(BlockSzie[j] > BlockSzie[index]){
+                    index = j;
+                }
+            }
+        }
+
+        if(index != -1)
+           allocate[i] = index;
+           BlockSzie[index] -= ProcessSize[i]; 
+    }
+
+    printf("\n Process\t Process Size\t BlockSzie\n");
+    for(i=0;i<process;i++){
+        printf("%d \t\t\t %d \t\t\t",i+1, ProcessSize[i]);
+        if(allocate[i] != -1){
+            printf("%d\n",allocate[i]+1);
+        }
+        else
+            printf("Not Allocated\n");
+    }
+
+}
+
+int main(){
+    int b[] = {100, 200, 50, 300};
+    int p[] = {20,60,220,310};
+    int blo = sizeof(b)/sizeof(b[0]);
+        int pro = sizeof(p)/sizeof(p[0]);
+
+    worstFit(blo, b, pro, p);
+
+}
